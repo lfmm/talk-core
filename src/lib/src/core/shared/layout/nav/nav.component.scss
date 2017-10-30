@@ -1,0 +1,194 @@
+@import "../../../styles/_colors.scss";
+@import "../../../styles/_fonts.scss";
+@import "../../../styles/_fontawesome.scss";
+
+.core-nav {
+
+  padding: 0;
+  margin: 0;
+
+  ul {
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  li {
+
+    background-image: linear-gradient(
+      to right,
+      transparent 50%,
+      lighten($secondary, 10%) 50%,
+      $secondary 95%,
+      darken($secondary, 10%) 95%
+    );
+
+    cursor: pointer;
+    background-size: 300% 100%;
+    background-position: center left;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+
+    &:hover {
+      background-position: center right;
+      color: rgba(0,0,0,.75);
+    }
+
+    & div {
+      color: $secondary-text;
+      display: inline-block;
+      padding: 1rem 0;
+      transition: all .25s ease-in-out;
+
+      & span {
+        padding-right: 10px;
+        @include base-font;
+      }
+
+      & i {
+        padding-right: 3px;
+        width: 20px;
+        text-align: center;
+      }
+
+    }
+
+  }
+
+}
+
+.dark-theme {
+
+  .core-nav {
+    
+      ul {
+    
+      }
+    
+      li {
+    
+        background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          lighten($primary, 10%) 50%,
+          $primary 95%,
+          darken($primary, 10%) 95%
+        );
+    
+        &:hover {
+        }
+    
+        & div {
+    
+          & span {
+          }
+    
+          & i {
+          }
+    
+        }
+    
+      }
+    
+    }
+
+}
+
+.light-theme {
+  
+  .core-nav {
+    
+      ul {
+    
+      }
+    
+      li {
+    
+        background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          lighten($info, 10%) 50%,
+          $info 95%,
+          darken($info, 10%) 95%
+        );
+    
+        &:hover {
+        }
+    
+        & div {
+    
+          & span {
+          }
+    
+          & i {
+          }
+    
+        }
+    
+      }
+    
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .core-nav {
+  
+    ul {
+  
+      flex-direction: row;
+  
+      padding-top: 0px;
+      padding-left: 4px;
+
+    }
+  
+    li {
+  
+      background-image: linear-gradient(
+        to top,
+        transparent 50%,
+        rgba(162,211,156, 1) 50%,
+        rgba(162,211,156,1) 95%,
+        rgba(124,197,118,1) 95%
+      );
+  
+      background-size: 100% 200%;
+      background-position: bottom center;
+      text-align: center;
+  
+      &:hover {
+        background-position: top center;
+      }
+  
+      & div {
+        color: #666;
+        display: inline-block;
+        padding: .5rem;
+        transition: all .25s ease-in-out;
+  
+        & span {
+          padding: 0;
+          @include base-font;
+        }
+
+        & i {
+          padding: 0;
+          width: auto;
+          text-align: center;
+        }
+  
+      }
+  
+    }
+  
+  }
+}

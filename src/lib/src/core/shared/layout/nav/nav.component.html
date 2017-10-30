@@ -1,0 +1,7 @@
+<div class="core-nav">
+  <ul>
+    <li *ngFor="let n of options.options | async" (click)="onClick($event,n)">
+      <div><span>{{ n.name }}</span><i [ngClass]="'fa ' + n.icon"></i></div>
+    </li>
+  </ul>
+</div>

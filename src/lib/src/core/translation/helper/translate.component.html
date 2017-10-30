@@ -1,0 +1,20 @@
+<ng-container *ngIf="translations && translations.length > 0">
+  <table>
+    <thead>
+      <th *ngFor="let t of translations">
+        {{ t.lang }}
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of keys">
+        <td *ngFor="let t of translations">
+          {{ t.lang + ' : ' + p }}
+          <input type="text" #ii [value]="keyValue(t.lang, p)" (keyup.enter)="setValue(t.lang, p, ii.value)" (blur)="setValue(t.lang, p, ii.value)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    {{ transToJSON() }}
+  </div>
+</ng-container>

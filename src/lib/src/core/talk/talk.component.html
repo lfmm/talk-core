@@ -1,0 +1,34 @@
+<div class="talk_list_container">
+  <div class="flow row" class.xs="flow column">
+    <div class="item_20">Id</div>
+    <div class="item_20">What</div>
+    <div class="item_20">Who</div>
+    <div class="item_20">When</div>
+    <div class="item_20">...</div>
+  </div>
+  <div *ngFor="let t of ts.talks | async" class="flow row" class.xs="flow column">
+    <div class="item_20">{{ t.id }}</div>
+    <div class="item_20">{{ t.what }}</div>
+    <div class="item_20">{{ t.who }}</div>
+    <div class="item_20">{{ t.when }}</div>
+    <div class="item_20">
+      <button type="button" (click)="ts.selectTalk(t)">{{ 'TALK.SELECT' | translate }}</button>
+      <button type="button" (click)="ts.removeTalk(t)">{{ 'TALK.REMOVE' | translate }}</button>
+    </div>
+  </div>
+</div>
+<h1>{{ 'TALK.NEW' | translate }}</h1>
+<input type="text" #tId />
+<input type="text" #tWhat />
+<input type="text" #tWho />
+<input type="date" #tWhen />
+<button type="button" (click)="ts.addTalk({ id: tId.value, what: tWhat.value, who: tWho.value, when: tWhen.value})">add one</button>
+
+<h1>{{ 'TALK.UPDATE' | translate }}</h1>
+<div *ngIf="ts.talk | async; let t">
+  <input type="text" #tsId [value]="t.id" />
+  <input type="text" #tsWhat [value]="t.what" />
+  <input type="text" #tsWho [value]="t.who" />
+  <input type="date" #tsWhen [value]="t.when" />
+  <button type="button" (click)="ts.updateTalk({ id: tsId.value, what: tsWhat.value, who: tsWho.value, when: tsWhen.value})">update</button>
+</div>

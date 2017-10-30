@@ -1,0 +1,3 @@
+<ng-container *ngIf="availableLanguages && availableLanguages.length > 0">
+  <button *ngFor="let l of availableLanguages" (click)="selectLanguage(l)">{{l}}</button>
+</ng-container>

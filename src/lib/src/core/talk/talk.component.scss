@@ -1,0 +1,36 @@
+
+.talk_list_container {
+  width: 100%;
+  overflow-x: none;
+  overflow-y: auto;
+}
+
+.flow { 
+  display: flex;  
+  box-sizing: border-box;   
+  -webkit-box-direction: normal;   
+
+  .row { 
+    flex-direction: row;      
+    -webkit-box-orient: horizontal;   
+  }
+
+  .column { 
+     flex-direction: column;   
+     -webkit-box-orient: vertical;  
+     height: 100px;       /*  important for sizing of row heights */
+     margin-bottom: 20px;   
+  }
+}
+
+.item_40, .item_20 {  
+  flex: 1 1 100%;   
+  box-sizing: border-box;   
+  -webkit-box-flex: 1; 
+}
+
+.row     .item_40 {  max-width: 40%; }
+.row     .item_20 {  max-width: 20%; }
+
+.column  .item_40 {   max-height: 40%; }
+.column  .item_20 {  max-height: 20%; }
